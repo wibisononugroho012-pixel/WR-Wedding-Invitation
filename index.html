@@ -31,9 +31,9 @@
 </head>
 <body>
   <div class="iframe-container">
+    <!-- Hapus atribut src dari sini, akan diisi otomatis oleh JavaScript -->
     <iframe
       id="app"
-      src="https://script.google.com/macros/s/AKfycbwvlF7ZhDwUPagklLIdU0iYuTtR8QDwrfQ97lR-5yNTnl_ViSupWeEabYIrIXMnmlVUsw/exec"
       scrolling="yes"
       allowfullscreen="true"
       webkitallowfullscreen="true"
@@ -41,5 +41,19 @@
       allow="fullscreen; camera; microphone; display-capture; geolocation;">
     </iframe>
   </div>
+
+  <script>
+    // 1. Tentukan URL dasar Google Script Anda
+    const baseUrl = "https://script.google.com/macros/s/AKfycbwvlF7ZhDwUPagklLIdU0iYuTtR8QDwrfQ97lR-5yNTnl_ViSupWeEabYIrIXMnmlVUsw/exec";
+    
+    // 2. Ambil parameter dari URL web GitHub saat ini (contoh: "?to=WR001")
+    const queryString = window.location.search;
+    
+    // 3. Gabungkan URL dasar dengan parameter tersebut
+    const finalUrl = baseUrl + queryString;
+    
+    // 4. Masukkan URL final ke dalam iframe
+    document.getElementById("app").src = finalUrl;
+  </script>
 </body>
 </html>
